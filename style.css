@@ -1,0 +1,225 @@
+body {
+  font-family: 'Aptos Narrow', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("images/Donating hands.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 52px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  color: rgb(96, 178, 237);
+  font-weight: bold;
+  margin-top: 100px;
+}
+
+.top-nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.top-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.top-nav li a {
+  text-decoration: none;
+  color: #1e71a1;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.top-nav li a:hover {
+  background-color: #101010;
+}
+
+/* Testimonials Section */
+#testimonials {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#testimonials h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.testimonial-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.speechbox {
+  background: linear-gradient(135deg, #5b8de0, #edf1f5);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  position: relative;
+}
+
+.speechbox::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 40px;
+  border-width: 20px 20px 0;
+  border-style: solid;
+  border-color: #5b8de0 transparent transparent transparent;
+}
+
+.author {
+  display: block;
+  margin-top: 10px;
+  font-style: italic;
+  color: #ddd;
+}
+
+/* Tile form */
+.tile-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tile {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.tile:hover {
+  transform: scale(1.03);
+}
+
+.tile input[type="checkbox"] {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.tile span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 14px;
+  padding: 6px;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Donation results */
+.donation-center {
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: calc(33% - 40px);
+  box-sizing: border-box;
+}
+
+.donation-center .center-box {
+  position: relative;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.donation-center h3 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.donation-center p {
+  font-size: 1.1em;
+  color: #555;
+  margin: 5px 0;
+}
+
+.donation-center p strong {
+  color: #222;
+}
+
+#match-result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Map styling */
+.map-box {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#map {
+  height: 500px;
+  width: 100%;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .donation-center {
+    width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .donation-center {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
