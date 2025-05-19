@@ -11,8 +11,8 @@ body {
 }
 
 h1 {
-  font-size: 52px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 80px;
+  font-family: 'Share Tech', sans-serif;
   text-align: center;
   color: rgb(96, 178, 237);
   font-weight: bold;
@@ -41,10 +41,11 @@ h1 {
   padding: 8px 12px;
   border-radius: 4px;
   transition: background 0.3s;
+  font-family: 'Share Tech', sans-serif;
 }
 
 .top-nav li a:hover {
-  background-color: #101010;
+  background-color: #c2dbf39f;
 }
 
 /* Testimonials Section */
@@ -74,7 +75,7 @@ h1 {
   padding: 20px;
   border-radius: 15px;
   width: 300px;
-  font-size: 14px;
+  font-size: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-align: left;
   position: relative;
