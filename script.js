@@ -119,7 +119,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   ];
 
-const map = L.map('map').setView([1.3521, 103.8198], 12);
+const map = L.map('map', {
+  center: [1.358192, 103.825378],  // Central coordinates of Bishan
+  zoom: 12,                    // Set zoom level to 10 for a broader view
+  dragging: false,              // Disable dragging (map movement)
+  zoomControl: true,            // Enable zoom controls (+ and -)
+  scrollWheelZoom: false        // Disable scroll wheel zooming
+});
+
 
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
