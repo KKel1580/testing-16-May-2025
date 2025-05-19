@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 1.42448,
       lng: 103.83858
     },
-        {
+    {
       name: "Dignity Mama @ Ng Teng Fong Hospital",
       items: ["books"],
       location: "1 Jurong East St 21 Tower A NTFGH Clinics #02-10, Singapore 609606",
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 1.33389,
       lng: 103.74543
     },
-            {
+    {
       name: "Dignity Mama @ NUH",
       items: ["books"],
       location: "1 Lower Kent Ridge Road #01-39, One@KentRidge, Singapore 119082",
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 1.29383,
       lng: 103.78316
     },
-                {
+    {
       name: "Dignity Mama @ Tan Tock Seng Hospital",
       items: ["books"],
       location: "11 Jalan Tan Tock Seng, Basement 1,Singapore 308433",
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 1.32246,
       lng: 103.84643
     },
-                    {
+    {
       name: "Dignity Mama @ Sengkang Hospital",
       items: ["books"],
       location: "110 Sengkang East Way Level 1 SKH Campus,Singapore 544886",
@@ -109,26 +109,96 @@ document.addEventListener("DOMContentLoaded", function () {
       lng: 103.92295
     },
     {
-      name: "Charity E",
-      items: ["clothes", "toys", "furniture"],
-      location: "202 Kindness Dr., Metroville",
-      hours: "Mon-Sun: 8 AM - 8 PM",
-      logo: "images/charity_e_logo.png",
-      lat: 1.3140,
-      lng: 103.8450
+      name: "H&M (JEM)",
+      items: ["clothes"],
+      location: "50 Jurong Gateway Rd, JEM, Singapore 608549",
+      hours: "Mon-Sun: 10 AM - 10 PM",
+      logo: "images/H&M logo.JPG",
+      lat: 1.33328,
+      lng: 103.74296
+    },
+    {
+      name: "H&M (Kallang Wave Mall)",
+      items: ["clothes"],
+      location: "1 Stadium Place, Singapore 397628",
+      hours: "Mon-Sun: 10 AM - 10 PM",
+      logo: "images/H&M logo.JPG",
+      lat: 1.30325,
+      lng: 103.87380
+    },
+
+    {
+      name: "H&M (NEX)",
+      items: ["clothes"],
+      location: "23 Serangoon Central, #01-12 to 33, Singapore 556083",
+      hours: "Mon-Sun: 10 AM - 10 PM",
+      logo: "images/H&M logo.JPG",
+      lat: 1.35090,
+      lng: 103.87232
+    },
+
+  {
+      name: "H&M (Orchard Building)",
+      items: ["clothes"],
+      location: "1 Grange Rd, Orchard Building, Singapore 239693",
+      hours: "Mon-Sun: 10 AM - 10 PM",
+      logo: "images/H&M logo.JPG",
+      lat: 1.30163,
+      lng: 103.83724
+    },
+
+  {
+      name: "H&M (PLQ)",
+      items: ["clothes"],
+      location: "2 Paya Lebar Rd, #01-01/01A/02, Singapore 409053",
+      hours: "Mon-Sun: 10 AM - 10 PM",
+      logo: "images/H&M logo.JPG",
+      lat: 1.31772,
+      lng: 103.89289
+    },
+
+  {
+      name: "H&M (Suntec City)",
+      items: ["clothes"],
+      location: "3 Temasek Blvd, #01-307 / 308 / 309 / 311, Singapore 038983",
+      hours: "Mon-Sun: 10 AM - 10 PM",
+      logo: "images/H&M logo.JPG",
+      lat: 1.29356,
+      lng: 103.85681
+    },
+
+{
+      name: "H&M (United Square)",
+      items: ["clothes"],
+      location: "101 Thomson Rd, Singapore 307571",
+      hours: "Mon-Sun: 10 AM - 10 PM",
+      logo: "images/H&M logo.JPG",
+      lat: 1.31754,
+      lng: 103.84350
+    },
+
+{
+      name: "H&M (Vivo City)",
+      items: ["clothes"],
+      location: "1 HarbourFront Walk, #01-18/19/20, Singapore 098585",
+      hours: "Mon-Sun: 10 AM - 10 PM",
+      logo: "images/H&M logo.JPG",
+      lat: 1.26502,
+      lng: 103.82225
     }
   ];
 
 const map = L.map('map', {
-  center: [1.358192, 103.825378],  // Central coordinates of Bishan
-  zoom: 12,                    // Set zoom level to 10 for a broader view
-  dragging: false,              // Disable dragging (map movement)
-  zoomControl: true,            // Enable zoom controls (+ and -)
-  scrollWheelZoom: false        // Disable scroll wheel zooming
+  center: [1.358192, 103.825378],  // Coordinates for Singapore
+  zoom: 12,
+  dragging: true,  // Enable dragging of the map ✅
+  zoomControl: true,
+  scrollWheelZoom: false
 });
 
+window.scrollTo(window.scrollX, window.scrollY);
 
-
+  // Add tile layer from OpenStreetMap
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors',
     maxZoom: 25,
@@ -140,9 +210,6 @@ const map = L.map('map', {
     const selectedItems = Array.from(
       document.querySelectorAll('input[type="checkbox"]:checked')
     ).map(cb => cb.value);
-
-    const resultContainer = document.getElementById("match-result");
-    resultContainer.innerHTML = "";
 
     // Remove previous markers from map
     markers.forEach(marker => map.removeLayer(marker));
@@ -158,31 +225,18 @@ const map = L.map('map', {
 
     if (matchedCenters.length > 0) {
       matchedCenters.forEach(center => {
-        // Add to list
-        const div = document.createElement("div");
-        div.classList.add("donation-center");
-        div.innerHTML = `
-          <div class="center-box">
-            <h3>${center.name}</h3>
-            <p><strong>Location:</strong> ${center.location}</p>
-            <p><strong>Items Accepted:</strong> ${center.items.join(", ")}</p>
-            <p><strong>Operating Hours:</strong> ${center.hours}</p>
-          </div>
-        `;
-        resultContainer.appendChild(div);
-
-        // Custom icon
+        // Custom icon for donation centers
         const donationIcon = L.icon({
           iconUrl: center.logo,
-          iconSize: [30, 30],
-          iconAnchor: [25, 50],
-          popupAnchor: [0, -50]
+          iconSize: [30, 30],  // Size of the marker
+          iconAnchor: [15, 30],  // Pointing to the bottom of the marker
+          popupAnchor: [0, -30]  // Popup position
         });
 
         // Add marker with popup
         const marker = L.marker([center.lat, center.lng], { icon: donationIcon })
           .addTo(map)
-          .bindPopup(`
+          .bindPopup(` 
             <strong>${center.name}</strong><br>
             ${center.location}<br>
             ${center.hours}<br>
@@ -191,8 +245,10 @@ const map = L.map('map', {
 
         markers.push(marker);
       });
-    } else {
-      resultContainer.innerHTML = "<p>No donation centers match your selected items.</p>";
+
+      // Auto-zoom to fit all markers on the map
+      const group = new L.featureGroup(markers);
+      map.fitBounds(group.getBounds());
     }
   }
 
@@ -200,4 +256,9 @@ const map = L.map('map', {
   document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
     checkbox.addEventListener("change", updateMatchingCenters);
   });
+
+  // Call the function initially on page load
+  updateMatchingCenters();
 });
+
+
