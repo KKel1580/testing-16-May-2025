@@ -5,53 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Donating Tips</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Leaflet Map Library (only if needed elsewhere) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <h1>Donating Tips</h1>
-</header>
+  <header>
+    <h1>Donating Tips</h1>
+  </header>
 
-<nav class="top-nav">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="donation-centres.html">Donation Centres</a></li>
-    <li><a href="donating-tips.html">Donating Tips</a></li>
-    <li><a href="about-us.html">About Us</a></li>
-  </ul>
-</nav>
+  <!-- Navigation Bar -->
+  <nav class="top-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="donation-centres.html">Donation Centres</a></li>
+      <li><a href="donating-tips.html">Donating Tips</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+    </ul>
+  </nav>
 
-<main>
-  <div class="tips-container">
-    <h2>Tips for Donating</h2>
-    <div class="donating-tip">
-      <h3>1. Choose the Right Items</h3>
-      <p>Only donate items that are gently used or new. Ensure that they are in good condition for the next person.</p>
+  <!-- Tips Section -->
+  <main>
+    <div class="card-container">
+      <div class="card card1">
+        <i class="fas fa-box-open"></i>
+        <h3>Choose the Right Items</h3>
+        <p>Only donate items that are accepted by the donation centres.</p>
+      </div>
+      <div class="card card2">
+        <i class="fas fa-soap"></i>
+        <h3>New or Gently Used Items</h3>
+        <p>Ensure items are new or gently used; suitable for reuse.</p>
+      </div>
+      <div class="card card3">
+        <i class="fa-solid fa-tag"></i>
+        <h3>Label Fragile Items</h3>
+        <p>If you're donating fragile items, please label them clearly.</p>
+      </div>
+      <div class="card card4">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        <h3>Not a Dumping Ground</h3>
+        <p>Donating centres are not dumping grounds. Please arrange the items in order.</p>
+      </div>
+      <div class="card card5">
+        <i class="fa-solid fa-biohazard"></i>
+        <h3>Do not donate dangerous items</h3>
+        <p>Chemicals, flammable materials or sharp objects are prohibited.</p>
+      </div>
     </div>
-    <div class="donating-tip">
-      <h3>2. Be Specific About Your Donation</h3>
-      <p>Try to be specific about what you are donating. For example, donating books is great, but specifying whether they are for children or adults helps the recipient more.</p>
-    </div>
-    <div class="donating-tip">
-      <h3>3. Avoid Donating Items You Wouldn't Use</h3>
-      <p>Donate only items you would personally use or give to a loved one. Avoid sending things that are worn out, outdated, or unusable.</p>
-    </div>
-    <div class="donating-tip">
-      <h3>4. Consider Local Charities</h3>
-      <p>Whenever possible, support local charities or donation centers that are directly helping people in your community.</p>
-    </div>
-  </div>
-</main>
+  </main>
 
-<script src="script.js"></script>
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 
 </body>
 </html>
+
+
+
+
+
+
 

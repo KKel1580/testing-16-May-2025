@@ -126,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 1.30325,
       lng: 103.87380
     },
-
     {
       name: "H&M (NEX)",
       items: ["clothes"],
@@ -136,8 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 1.35090,
       lng: 103.87232
     },
-
-  {
+    {
       name: "H&M (Orchard Building)",
       items: ["clothes"],
       location: "1 Grange Rd, Orchard Building, Singapore 239693",
@@ -146,8 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 1.30163,
       lng: 103.83724
     },
-
-  {
+    {
       name: "H&M (PLQ)",
       items: ["clothes"],
       location: "2 Paya Lebar Rd, #01-01/01A/02, Singapore 409053",
@@ -156,8 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 1.31772,
       lng: 103.89289
     },
-
-  {
+    {
       name: "H&M (Suntec City)",
       items: ["clothes"],
       location: "3 Temasek Blvd, #01-307 / 308 / 309 / 311, Singapore 038983",
@@ -166,8 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 1.29356,
       lng: 103.85681
     },
-
-{
+    {
       name: "H&M (United Square)",
       items: ["clothes"],
       location: "101 Thomson Rd, Singapore 307571",
@@ -176,8 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 1.31754,
       lng: 103.84350
     },
-
-{
+    {
       name: "H&M (Vivo City)",
       items: ["clothes"],
       location: "1 HarbourFront Walk, #01-18/19/20, Singapore 098585",
@@ -188,17 +182,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   ];
 
-const map = L.map('map', {
-  center: [1.358192, 103.825378],  // Coordinates for Singapore
-  zoom: 12,
-  dragging: true,  // Enable dragging of the map ✅
-  zoomControl: true,
-  scrollWheelZoom: false
-});
+  const map = L.map('map', {
+    center: [1.358192, 103.825378],
+    zoom: 12,
+    dragging: true,
+    zoomControl: true,
+    scrollWheelZoom: false
+  });
 
-window.scrollTo(window.scrollX, window.scrollY);
+  window.scrollTo(window.scrollX, window.scrollY);
 
-  // Add tile layer from OpenStreetMap
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors',
     maxZoom: 25,
@@ -228,10 +221,15 @@ window.scrollTo(window.scrollX, window.scrollY);
         // Custom icon for donation centers
         const donationIcon = L.icon({
           iconUrl: center.logo,
-          iconSize: [30, 30],  // Size of the marker
-          iconAnchor: [15, 30],  // Pointing to the bottom of the marker
-          popupAnchor: [0, -30]  // Popup position
+          iconSize: [30, 30],
+          iconAnchor: [15, 30],
+          popupAnchor: [0, -30]
         });
+
+        // Capitalize each item (handles multi-word items too)
+        const capitalizedItems = center.items.map(item =>
+          item.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+        ).join(", ");
 
         // Add marker with popup
         const marker = L.marker([center.lat, center.lng], { icon: donationIcon })
@@ -239,8 +237,8 @@ window.scrollTo(window.scrollX, window.scrollY);
           .bindPopup(` 
             <strong>${center.name}</strong><br>
             ${center.location}<br>
-            ${center.hours}<br>
-            <strong>Items Accepted:</strong> ${center.items.join(", ")}
+            ${center.hours}<br><br>
+            <strong>Items Accepted:</strong> ${capitalizedItems}
           `);
 
         markers.push(marker);
@@ -252,13 +250,12 @@ window.scrollTo(window.scrollX, window.scrollY);
     }
   }
 
-  // Listen to checkbox changes
   document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
     checkbox.addEventListener("change", updateMatchingCenters);
   });
 
-  // Call the function initially on page load
   updateMatchingCenters();
 });
+
 
 
